@@ -1,0 +1,30 @@
+.thread-card{
+    height: 15rem;
+    width:40rem;
+    box-shadow: none !important;
+}
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.card-image{
+    height: 15rem;
+    width: 20rem;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 50)
+}
+.image-grid{
+    display: flex;
+    width: 92vw;
+    flex-wrap: wrap;
+    list-style: none;
+    overflow-y: scroll;
+}
+.btn-controls{
+    margin: 3px;
+}
+.btn-dl{
+    width:100px;
+}

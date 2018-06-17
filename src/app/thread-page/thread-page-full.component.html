@@ -1,0 +1,49 @@
+<div style="display: flex">
+
+    <div class="image-grid">
+        <mat-card class="thread-card">
+            <label class="card-title">
+                <h3>{{ thread.name }}</h3>
+            </label>
+            <br/>
+            <!--LINK-->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark input-group-text material-icons" matTooltip="Visit Thread" (click)="openUrl()">link</button>
+                </div>
+                <input type="text" class="form-control" id="urlField" [value]="thread.url" readonly>
+            </div>
+
+            <!--FOLDER-->
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <button class="btn btn-dark input-group-text material-icons" matTooltip="Open Folder" (click)="openFolder()">folder</button>
+                </div>
+                <input type="text" class="form-control" id="folderField" [value]="thread.folder" readonly>
+            </div>
+            <button (click)="activateToggle()" class="btn btn-primary material-icons btn-controls btn-dl" [disabled]="thread.active" *ngIf="!thread.active" matTooltip="Start">file_download</button>
+            <button [disabled]="!thread.active" (click)="activateToggle()" class="btn btn-secondary material-icons btn-controls btn-dl" *ngIf="thread.active" matTooltip="Stop">stop</button>
+            <button style="" (click)="ngOnDestroy()" class="btn btn-danger material-icons btn-controls" matTooltip="Remove">delete</button>            
+            <div style="padding-top: 5px">
+             <mat-progress-bar style="height: 10px;" *ngIf="thread.active" [mode]="bar" [value]="progress"></mat-progress-bar>
+            </div>
+            <br>
+        </mat-card>
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+        <img class="card-image" [src]="thumb">
+    </div>
+</div>

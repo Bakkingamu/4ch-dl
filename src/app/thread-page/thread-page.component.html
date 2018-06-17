@@ -1,0 +1,27 @@
+<p>
+<mat-card class="thread-card">
+<img mat-card-image class="card-image" [src]="thumb">
+<label class="card-title"><h3>{{ thread.name }}</h3></label>
+<br/>
+<!--LINK-->
+<div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <button class="btn btn-dark input-group-text material-icons" matTooltip="Visit Thread" (click)="openUrl()">link</button>
+    </div>
+    <input type="text" class="form-control" id="urlField" [value]="thread.url" readonly>
+  </div>
+
+  <!--FOLDER-->
+<div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <button class="btn btn-dark input-group-text material-icons" matTooltip="Open Folder" (click)="openFolder()">folder</button>
+    </div>
+    <input type="text" class="form-control" id="folderField" [value]="thread.folder" readonly>
+  </div>
+
+<mat-progress-bar *ngIf="thread.active" [mode]="bar" [value]="progress"></mat-progress-bar><br>
+<button (click)="activateToggle()" class="btn btn-primary material-icons" [disabled]="thread.active" *ngIf="!thread.active" matTooltip="Start">file_download</button> 
+<button [disabled]="!thread.active" (click)="activateToggle()" class="btn btn-secondary material-icons" *ngIf="thread.active" matTooltip="Stop">stop</button>
+<button style="float:right;"  (click)="ngOnDestroy()" class="btn btn-danger material-icons" matTooltip="Remove">delete</button>
+</mat-card>
+</p>

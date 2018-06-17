@@ -1,0 +1,59 @@
+<!-- 
+<mat-toolbar color="primary" class="top-bar">
+    <span>4CHAN IMAGE DOWNLOADER</span>
+    <div class="right-cluster"></div>
+    <button class="btn material-icons close-button" (click)="minimize()">remove</button>
+    <button class="btn material-icons close-button" (click)="minMax()">border_style</button>
+    <button class="btn material-icons close-button" (click)="closeWindow()">close</button>
+  </mat-toolbar> -->
+<mat-sidenav-container class="wrapper">
+  <!-- SIDEBAR-->
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-nav-list>
+      <mat-list-item (click)="clickHome()"> Add Thread </mat-list-item>
+      <mat-divider></mat-divider>
+      <!-- <mat-list-item (click)="clickThreads()"> Threads </mat-list-item> -->
+      <mat-list-item class="thread-list-item" *ngFor="let thread of threads" (click)="clickThread(thread.id)"> {{thread.name}} </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- PAGE CONTENT-->
+  <mat-sidenav-content class="page-container">
+    <!-- HOMEPAGE-->
+    <div id="homepage" [hidden]="page != 'home'">
+      <div class="content home-content">
+        <form [formGroup]="threadForm" (ngSubmit)="addThread()">
+
+          <label for="name">Name</label>
+          <input formControlName="name" id="name" class="form-control"  placeholder="Ex: Cute pics">
+          <br/>
+
+          <label for="url">Thread URL</label>
+          <input formControlName="url" id="url" class="form-control" placeholder="Ex: https://boards.4chan.org/c/thread/3165611" (click)="pasteUrl()">
+          <br/>
+
+
+          <label for="folder">Download Folder</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <button type="button" class="btn btn-dark input-group-text material-icons" matTooltip="Select Folder" (click)="openDirectory()">folder</button>
+            </div>
+            <input formControlName="folder" id="folder" class="form-control" readonly>
+          </div>
+          <br/>
+          <br/>
+          <button type="submit" class="btn btn-success" [disabled]="!threadForm.valid">Add Thread</button>
+          <button type="button" class="btn btn-success" (click)="addSample()">ADD SAMPLE</button>
+        </form>
+
+      </div>
+    </div>
+    <!-- Thread Component-->
+    <!-- <div class="content thread-content" [hidden]="page != 'thread'">
+  <app-thread-page *ngFor="let thread of threads"  class="thread-page"  [thread]="thread" (delete)="removeThread(thread)"></app-thread-page>
+</div> -->
+    <div class="content thread-content" [hidden]="page != 'thread-page'">
+      <app-thread-page *ngFor="let thread of threads" class="thread-page" [hidden]="currentThread != thread.id" [thread]="thread"
+        (delete)="removeThread(thread)"></app-thread-page>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,79 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$md-4chan: (
+    50 : #eff3e4,
+    100 : #d7e0bd,
+    200 : #bccc91,
+    300 : #a1b864,
+    400 : #8ca843,
+    500 : #789922,
+    600 : #70911e,
+    700 : #658619,
+    800 : #5b7c14,
+    900 : #486b0c,
+    A100 : #d8ff9d,
+    A200 : #c3ff6a,
+    A400 : #afff37,
+    A700 : #a4ff1e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$md-4chan-biege: (
+    50 : #fffefb,
+    100 : #fffcf4,
+    200 : #fffbed,
+    300 : #fff9e6,
+    400 : #fff7e0,
+    500 : #fff6db,
+    600 : #fff5d7,
+    700 : #fff3d2,
+    800 : #fff2cd,
+    900 : #ffefc4,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+$fch-app-primary: mat-palette($md-4chan, 700, 300, 900 );
+
+$fch-app-accent: mat-palette($md-4chan-biege);
+
+$fch-app-warn: mat-palette($mat-red);
+
+$fch-app-theme: mat-light-theme($fch-app-primary, $fch-app-accent, $fch-app-warn);
+
+@include angular-material-theme($fch-app-theme);

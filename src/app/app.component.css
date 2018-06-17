@@ -1,0 +1,60 @@
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+    
+  }
+  .wrapper{
+      height:100vh;
+  }
+.sidenav {
+    min-width: 130px;
+    max-width: 130px;
+}
+.content{
+    min-width: 500px;
+    padding: 10px;
+}
+.page-container{
+    min-height: 500px;
+}
+.thread-content{
+    max-height: 100vh;
+    min-width: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0px;
+}
+.top-bar{
+    -webkit-app-region: drag;
+    display: flex;
+}
+.thread-page{
+    padding: 10px;
+}
+.home-content{
+    max-width: 600px;
+    max-height: 91vh;
+}
+.close-button{
+    background-color:transparent;
+    color:white;
+    border: 1px solid transparent;
+}
+.right-cluster{
+    margin-left: auto;
+}
+button {
+    -webkit-app-region: no-drag;
+  }
+.thread-list-item{
+    min-height: 1.8em;
+    max-height: 4em;
+    overflow: hidden;
+}

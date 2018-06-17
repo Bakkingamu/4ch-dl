@@ -1,0 +1,21 @@
+.thread-card{
+    min-width: 10rem;
+    max-width: 20rem;
+}
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.card-image{
+    height: 15rem;
+    object-fit: cover;
+}
+.image-grid{
+    display: flex;
+    width: 70vw;
+    flex-wrap: wrap;
+    list-style: none;
+    overflow-y: scroll;
+}
