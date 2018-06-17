@@ -29,21 +29,6 @@
             </div>
             <br>
         </mat-card>
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
-        <img class="card-image" [src]="thumb">
+        <img class="card-image" *ngFor="let post of thread.getPosts()"  [src]="'file://' + thread.folder + '\\'+ post.tim + post.ext">
     </div>
 </div>

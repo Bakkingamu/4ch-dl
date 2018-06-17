@@ -20,7 +20,7 @@ export class ThreadPageComponent implements OnInit {
   private downloader$: Subscription;
   public thumb: string;
   public bar = 'indeterminate';
-  constructor(private api: ApiService, private file: FileService, private _electronService: ElectronService) {
+  constructor(private api: ApiService, public file: FileService, private _electronService: ElectronService) {
     if (this._electronService.remote)
       this.fs = this._electronService.remote.require('fs');
   }
@@ -45,11 +45,13 @@ export class ThreadPageComponent implements OnInit {
         let total = imagePosts.length;
         this.progress = (100 * (0 / total))
         let count = 0;
+        this.thread.setPosts(imagePosts);
         for (let post of imagePosts) {
           this.bar = 'determinate';
           if (!this.file.exists(this.thread.folder, post.tim + post.ext)) {
             this.api.getImage(this.thread.board, post.tim, post.ext).subscribe((image) => {
               this.file.write(this.thread.folder, +post.tim + post.ext, image)
+              this.thread.setPosts(imagePosts);
               if (this.thumb == Config.placeholderImage) {
                   this.setThreadThumb(this.thread.folder + '\\' + post.tim + post.ext);
                   this.thread.thumb = this.thread.folder + '\\' + post.tim + post.ext;

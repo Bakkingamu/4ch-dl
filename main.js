@@ -11,7 +11,7 @@ function createWindow () {
     minWidth: 1200,
     backgroundColor: '#ffffff',
     icon: `file://${__dirname}/dist/angular-electron/assets/logo.png`,
-    frame: false
+    frame: true
   })
  // win.setMenu(null)
 

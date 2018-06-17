@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 export class Thread {
     //mutable
     public active: boolean = false;
-    private posts: IPost[] = []
+    public posts: IPost[] = []
     public thumb: string;
 
     //Generated
@@ -50,19 +50,24 @@ export class Thread {
     public getPosts(): IPost[] {
         return this.posts;
     }
+    public setPosts(posts: IPost[]){
+        this.posts = posts;
+    }
     toJSON(): {} {
         return {
             url: this.url,
             folder: this.folder,
             name: this.name,
             active: this.active,
-            thumb: this.thumb
+            thumb: this.thumb,
+            posts: this.posts
         }
     }
     static fromJSON(json) {
         let thread = new Thread(json['url'], json['folder'], json['name'])
         thread.active = json.active;
-        thread.thumb = json["thumb"];
+        thread.thumb = json['thumb'];
+        thread.thumb = json['posts']
         return thread;
     }
 }

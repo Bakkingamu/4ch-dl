@@ -53,7 +53,7 @@ export class FileService {
       for (let thread of threads) {
         jsonThreads.push(thread.toJSON())
       }
-      this.fs.writeFileSync('threads.json', JSON.stringify({ 'threads': jsonThreads }))
+      this.fs.writeFileSync('threads.json', JSON.stringify({ 'threads': jsonThreads }, null, '\t'))
     } else {
       console.log("write threads: fs not available");
     }

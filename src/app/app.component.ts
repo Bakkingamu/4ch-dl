@@ -41,8 +41,8 @@ export class AppComponent {
     interval(10000).subscribe(() => {
       this.file.writeThreadFile(this.threads);
     })
-    this.addSample()
-    this.clickThread(this.threads[0].id)
+    // this.addSample()
+    // this.clickThread(this.threads[0].id)
   }
 
   clickHome() {
