@@ -29,6 +29,11 @@
             </div>
             <br>
         </mat-card>
-        <img class="card-image" *ngFor="let post of thread.getPosts()"  [src]="'file://' + thread.folder + '\\'+ post.tim + post.ext">
+        <div *ngFor="let post of thread.getPosts()">
+        <img class="card-image" style="cursor:pointer" *ngIf="post.ext != '.webm'" (click)="openFile(thread.folder + '\\'+ post.tim + post.ext)"   [src]="'file://' + thread.folder + '\\'+ post.tim + post.ext">
+        <video class="card-image" style="border-radius: 1px;" *ngIf="post.ext == '.webm'" muted autoplay loop>
+            <source [src]="'file://' + thread.folder + '\\'+ post.tim + post.ext" type="video/webm">
+        </video>
+    </div>
     </div>
 </div>

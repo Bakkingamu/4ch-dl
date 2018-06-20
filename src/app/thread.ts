@@ -67,7 +67,7 @@ export class Thread {
         let thread = new Thread(json['url'], json['folder'], json['name'])
         thread.active = json.active;
         thread.thumb = json['thumb'];
-        thread.thumb = json['posts']
+        thread.posts = json['posts']
         return thread;
     }
 }

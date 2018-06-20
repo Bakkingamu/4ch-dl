@@ -34,6 +34,7 @@ export class ThreadPageComponent implements OnInit {
     } else {
       this.thumb = Config.placeholderImage;
     }
+    console.log(this.thread.getPosts())
 
   }
   download() {
@@ -99,6 +100,11 @@ export class ThreadPageComponent implements OnInit {
   openUrl() {
     if (this._electronService.remote) {
       this._electronService.remote.shell.openExternal(this.thread.url);
+    }
+  }
+  openFile(file){
+    if (this._electronService.remote) {
+      this._electronService.remote.shell.openItem(file);
     }
   }
   openFolder() {

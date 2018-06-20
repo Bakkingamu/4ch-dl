@@ -13,7 +13,7 @@ function createWindow () {
     icon: `file://${__dirname}/dist/angular-electron/assets/logo.png`,
     frame: true
   })
- // win.setMenu(null)
+ win.setMenu(null)
 
   win.loadURL(`file://${__dirname}/dist/angular-electron/index.html`)
 
